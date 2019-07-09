@@ -10,6 +10,7 @@ A discord bot that only plays "Crab Rave" by NoiseStorm
 ### Get the song:
 * I got it through the [MonsterCat gold program](https://monster.cat/goldyt), since it's the highest quality of Crab Rave.
 * You can try to do Youtube to MP3, but that's against Youtube's TOS. (Just don't do it, since there's a possibility of getting a virus from one of those websites.)
+* After getting the music, name is "crabrave", make sure it's an mp3 file, and put it in the music folder.
 
 ### Installing requirements:
 |  Operating system  |  Command  |
@@ -25,7 +26,7 @@ A discord bot that only plays "Crab Rave" by NoiseStorm
 |  Operating system  |  Command  |
 | ------------- | ------------- |
 |  Windows  |  `py -3 bot.py`  |
-|  Linux  | `python3 bot.py`  |
+|  Linux  |  `python3 bot.py`  |
 
 ### All is done, let the chaos begin.
 * The bot should have started up now, enjoy my bot programmed about 90 minutes (bugs included).

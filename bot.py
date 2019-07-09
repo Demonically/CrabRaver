@@ -47,6 +47,8 @@ class MainCog(comms.Cog):
             try:
                 vc = await message.author.voice.channel.connect()
                 vc.play(discord.FFmpegPCMAudio(path('music', 'crabrave.mp3')))
+                vc.source = discord.PCMVolumeTransformer(vc.source)
+                vc.source.volume = 0.25
                 while vc.is_playing():
                     await asyncio.sleep(1)
                 vc.stop()
