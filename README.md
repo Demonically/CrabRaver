@@ -21,8 +21,10 @@ A discord bot that only plays "Crab Rave" by NoiseStorm
 ### Setting up configuration:
 * Copy `config_example.json` into `config.json`, then replace "Discord token" with your bot token that you get from [Here](https://discordapp.com/developers/applications/) after you create your bot.
 
-### Running the bot:
+### Invite the bot:
 * After inviting the bot to your server with [this link](https://discordapp.com/oauth2/authorize?client_id=598030607875833856&scope=bot&permissions=37028928), run the following command, depending on your operating system:
+
+### Running the bot:
 |  Operating system  |  Command  |
 | ------------- | ------------- |
 |  Windows  |  `py -3 bot.py`  |
