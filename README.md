@@ -31,4 +31,4 @@ A discord bot that only plays "Crab Rave" by NoiseStorm
 |  Linux  |  `python3 bot.py`  |
 
 ### All is done, let the chaos begin.
-* The bot should have started up now, enjoy my bot programmed about 90 minutes (bugs included).
+* The bot should have started up now, enjoy my bot programmed about 120 minutes (bugs included).
