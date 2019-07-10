@@ -26,7 +26,7 @@ class CrabRaver(comms.Bot):
     """ Events """
 
     async def on_ready(self):
-        self.change_presence(activity=discord.Game(name='"Crab Rave" by NoiseStorm'))
+        await self.change_presence(activity=discord.Game(name='"Crab Rave" by NoiseStorm'))
         printc('[ ! ]: RAVER IS READY TO CRAB')
 
 
@@ -49,13 +49,15 @@ class MainCog(comms.Cog):
                 vc = await message.author.voice.channel.connect()
                 vc.play(discord.FFmpegPCMAudio(path('music', 'crabrave.mp3')))
                 vc.source = discord.PCMVolumeTransformer(vc.source)
-                vc.source.volume = 0.25
+                vc.source.volume = 0.1
                 while vc.is_playing():
                     await asyncio.sleep(1)
                 vc.stop()
+                await vc.disconnect()
             except asyncio.TimeoutError:
                 printc(f'Connecting to channel: <{channel}> timed out.')
-
+            except discord.errors.ClientException:
+                await message.channel.send("I'm already raving with the crabs!")
 
     """ Commands """
 
