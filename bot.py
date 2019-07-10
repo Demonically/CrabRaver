@@ -26,6 +26,7 @@ class CrabRaver(comms.Bot):
     """ Events """
 
     async def on_ready(self):
+        self.change_presence(activity=discord.Game(name='"Crab Rave" by NoiseStorm'))
         printc('[ ! ]: RAVER IS READY TO CRAB')
 
 
@@ -43,7 +44,7 @@ class MainCog(comms.Cog):
     @comms.Cog.listener()
     async def on_message(self, message):
         """ """
-        if 'Crab Rave' in message.content:
+        if 'crab rave' in message.content.lower():
             try:
                 vc = await message.author.voice.channel.connect()
                 vc.play(discord.FFmpegPCMAudio(path('music', 'crabrave.mp3')))
