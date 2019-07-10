@@ -26,7 +26,8 @@ class CrabRaver(comms.Bot):
     """ Events """
 
     async def on_ready(self):
-        await self.change_presence(activity=discord.Game(name='"Crab Rave" by NoiseStorm'))
+        # await self.change_presence(activity=discord.Game(name='"Crab Rave" by NoiseStorm'))
+        await self.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='NoiseStorm: Crab Rave'))
         printc('[ ! ]: RAVER IS READY TO CRAB')
 
 
@@ -55,8 +56,8 @@ class MainCog(comms.Cog):
                 vc.stop()
                 await vc.disconnect()
             except asyncio.TimeoutError:
-                printc(f'Connecting to channel: <{channel}> timed out.')
-            except discord.errors.ClientException:
+                printc(f'[WARNING]: CONNECTING TO CHANNEL: <{channel}> TIMED OUT')
+            except discord.errors.ClientException or AttributeError:
                 await message.channel.send("I'm already raving with the crabs!")
 
     """ Commands """
