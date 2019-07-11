@@ -26,7 +26,6 @@ class CrabRaver(comms.Bot):
     """ Events """
 
     async def on_ready(self):
-        # await self.change_presence(activity=discord.Game(name='"Crab Rave" by NoiseStorm'))
         await self.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='NoiseStorm: Crab Rave'))
         printc('[ ! ]: RAVER IS READY TO CRAB')
 
