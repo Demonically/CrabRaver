@@ -72,6 +72,10 @@ class MainCog(comms.Cog):
         await ctx.send('https://youtu.be/LDU_Txk06tM')
 
     @comms.command()
+    async def leave(self, ctx):
+        pass # I'll put something here so the bot can leave a voice channel
+
+    @comms.command()
     @comms.is_owner()
     async def exit(self, ctx):
         """ """
