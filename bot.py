@@ -45,19 +45,18 @@ class MainCog(comms.Cog):
     async def on_message(self, message):
         """ """
         if 'crab rave' in message.content.lower():
-            try:
-                vc = await message.author.voice.channel.connect()
-                vc.play(discord.FFmpegPCMAudio(path('music', 'crabrave.mp3')))
-                vc.source = discord.PCMVolumeTransformer(vc.source)
-                vc.source.volume = 0.1
-                while vc.is_playing():
-                    await asyncio.sleep(1)
-                vc.stop()
-                await vc.disconnect()
-            except asyncio.TimeoutError:
-                printc(f'[WARNING]: CONNECTING TO CHANNEL: <{channel}> TIMED OUT')
-            except discord.errors.ClientException or AttributeError:
-                await message.channel.send("I'm already raving with the crabs!")
+            vc = await message.author.voice.channel.connect()
+            # Source to ffmpeg executable
+            ffmpegSource = path('C:', 'Users', 'Xithr', 'Documents', 'ffmpeg', 'bin', 'ffmpeg.exe')
+            # Music
+            sound = path('music', 'crabrave.mp3')
+            vc.play(discord.FFmpegPCMAudio(executable=ffmpegSource, source=sound))
+            vc.source = discord.PCMVolumeTransformer(vc.source)
+            vc.source.volume = 0.1
+            while vc.is_playing():
+                await asyncio.sleep(1)
+            vc.stop()
+            await vc.disconnect()
 
     """ Commands """
 
