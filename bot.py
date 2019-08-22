@@ -81,6 +81,6 @@ class MainCog(comms.Cog):
 
 
 if __name__ == "__main__":
-    bot = CrabRaver(command_prefix='!', help_command=None)
+    bot = CrabRaver(command_prefix='crab ', help_command=None)
     bot.add_cog(MainCog(bot))
     bot.run(bot.config['discord'], bot=True, reconnect=True)
