@@ -49,7 +49,7 @@ class MainCog(comms.Cog):
             # vc.play(discord.FFmpegPCMAudio(executable=ffmpegSource, source=sound))
             vc.play(discord.FFmpegPCMAudio(source=path('music', 'crabrave.mp3'), options='-loglevel fatal'))
             vc.source = discord.PCMVolumeTransformer(vc.source)
-            vc.source.volume = 0.025
+            vc.source.volume = 0.2
             while vc.is_playing():
                 await asyncio.sleep(1)
             vc.stop()
