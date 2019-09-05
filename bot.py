@@ -17,12 +17,12 @@ from output import path, now, printc
 
 class CrabRaver(comms.Bot):
     """ Subclass """
-    
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.config = json.load(open(path('config.json'), 'r'))
-        
+
     """ Events """
 
     async def on_ready(self):
@@ -34,7 +34,7 @@ class MainCog(comms.Cog):
     """ """
 
     def __init__(self, bot):
-        """ Objects: 
+        """ Objects:
         comms.Bot subclass as an attribute
         """
         self.bot = bot
@@ -47,9 +47,12 @@ class MainCog(comms.Cog):
         if 'crab rave' in message.content.lower():
             vc = await message.author.voice.channel.connect()
             # vc.play(discord.FFmpegPCMAudio(executable=ffmpegSource, source=sound))
-            vc.play(discord.FFmpegPCMAudio(source=path('music', 'crabrave.mp3'), options='-loglevel fatal'))
+            if 'boosted' in message.content.lower():
+                vc.play(discord.FFmpegPCMAudio(source=path('music', 'crabrave_boosted.mp3'), options='-loglevel fatal'))
+            else:
+                vc.play(discord.FFmpegPCMAudio(source=path('music', 'crabrave.mp3'), options='-loglevel fatal'))
             vc.source = discord.PCMVolumeTransformer(vc.source)
-            vc.source.volume = 0.2
+            vc.source.volume = 0.1
             while vc.is_playing():
                 await asyncio.sleep(1)
             vc.stop()
@@ -81,6 +84,6 @@ class MainCog(comms.Cog):
 
 
 if __name__ == "__main__":
-    bot = CrabRaver(command_prefix='crab ', help_command=None)
+    bot = CrabRaver(command_prefix='crabraver ', help_command=None)
     bot.add_cog(MainCog(bot))
     bot.run(bot.config['discord'], bot=True, reconnect=True)
